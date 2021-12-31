@@ -31,7 +31,7 @@ func CopyPacketConn(dst internet.AbstractPacketConnWriter, src internet.Abstract
 			handler(buffer[:n], addr)
 		}
 
-		n, err = dst.WriteTo(buffer[:n], addr)
+		_, err = dst.WriteTo(buffer[:n], addr)
 		if err != nil {
 			return err
 		}

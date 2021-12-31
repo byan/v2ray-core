@@ -2,6 +2,7 @@ package udp
 
 import (
 	"context"
+
 	"github.com/v2fly/v2ray-core/v4/common/buf"
 	"github.com/v2fly/v2ray-core/v4/common/net"
 	"github.com/v2fly/v2ray-core/v4/common/net/packetaddr"
@@ -25,6 +26,7 @@ func (p PacketAddrDispatcher) Dispatch(ctx context.Context, destination net.Dest
 	}
 	p.conn.WriteTo(payload.Bytes(), &net.UDPAddr{IP: destination.Address.IP(), Port: int(destination.Port.Value())})
 }
+
 func (p PacketAddrDispatcher) readWorker() {
 	for {
 		readBuf := buf.New()
